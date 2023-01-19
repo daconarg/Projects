@@ -57,10 +57,10 @@ while players_current_hp > 0 and enemys_current_hp > 0:
     print("Player's turn\n")
     while players_attack not in attacks:
       players_attack = input("Select your attak\n[C]ut\[S]hieldPush")
-      if players_attack == "C"
+      if players_attack == "C":
           print("Player hit with Cut")
           enemys_current_hp -= 12
-      elif players_attack == "S"
+      elif players_attack == "S":
           print("Player used Shield Push")
           enemys_current_hp -= 5
           shield_push == True
