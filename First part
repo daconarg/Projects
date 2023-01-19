@@ -22,7 +22,6 @@ while players_current_hp > 0 and enemys_current_hp > 0:
         print("Enemy hit you with Rapier Slash")
         players_current_hp -= 10
     else:
-        rapier_critical = 0
         rapier_critical = randint(1, 10)
       if rapier_critical == 5:
           print("Enemy hit a crittical attack!")
@@ -42,10 +41,10 @@ while players_current_hp > 0 and enemys_current_hp > 0:
         enemys_current_hp == 0
         
     players_hp_bar = int(players_current_hp * 10 / PLAYER_HP)
-    print("Player:        [{}{}] ({}{})".format("*" * players_hp_bar," " * (10 - players_hp_bar), players_current_hp, PLAYER_HP))
+    print("Player:        [{}/{}] ({}/{})".format("*" * players_hp_bar," " * (10 - players_hp_bar), players_current_hp, PLAYER_HP))
     
     enemys_hp_bar = int(enemys_current_hp * 10 / ENEMY_HP)
-    print("Enemy:       [{}{}] ({}{})".format("*" * enemys_hp_bar, " " * (10 - enemys_hp_bar), enemys_current_hp, ENEMY_HP))
+    print("Enemy:       [{}/{}] ({}/{})".format("*" * enemys_hp_bar, " " * (10 - enemys_hp_bar), enemys_current_hp, ENEMY_HP))
   
     input("Press Enter to continue...\n\n")
     os.system("cls")
@@ -74,10 +73,10 @@ while players_current_hp > 0 and enemys_current_hp > 0:
         enemys_current_hp == 0
 
     players_hp_bar = int(players_current_hp * 10 / PLAYER_HP)
-    print("Player:        [{}{}] ({}{})".format("*" * players_hp_bar," " * (10 - players_hp_bar), players_current_hp, PLAYER_HP))
+    print("Player:        [{}/{}] ({}/{})".format("*" * players_hp_bar," " * (10 - players_hp_bar), players_current_hp, PLAYER_HP))
     
     enemys_hp_bar = int(enemys_current_hp * 10 / ENEMY_HP)
-    print("Enemy:       [{}{}] ({}{})".format("*" * enemys_hp_bar, " " * (10 - enemys_hp_bar), enemys_current_hp, ENEMY_HP))
+    print("Enemy:       [{}/{}] ({}/{})".format("*" * enemys_hp_bar, " " * (10 - enemys_hp_bar), enemys_current_hp, ENEMY_HP))
   
     input("Press Enter to continue...\n\n")
     os.system("cls")
