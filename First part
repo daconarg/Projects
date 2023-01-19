@@ -1,4 +1,4 @@
-from randonm import randint
+from random import randint
 import os
 
 attacks = ["C", "E"]
