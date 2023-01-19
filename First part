@@ -22,6 +22,7 @@ while players_current_hp > 0 and enemys_current_hp > 0:
         print("Enemy hit you with Rapier Slash")
         players_current_hp -= 10
     else:
+        rapier_critical = 0
         rapier_critical = randint(1, 10)
       if rapier_critical == 5:
           print("Enemy hit a crittical attack!")
