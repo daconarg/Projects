@@ -1,7 +1,7 @@
 from random import randint
 import os
 
-attacks = ["C", "E"]
+attacks = ["C", "S"]
 
 PLAYER_HP = 50
 players_current_hp = PLAYER_HP
@@ -24,9 +24,9 @@ while players_current_hp > 0 and enemys_current_hp > 0:
     else:
         rapier_critical = 0
         rapier_critical = randint(1, 10)
-      if rapier_critical == 5:
-          print("Enemy hit a crittical attack!")
-          players_current_hp -= 16
+        if rapier_critical == 5:
+            print("Enemy hit a crittical attack!")
+            players_current_hp -= 16
         else:
             print("Enemy hit you with Thrust")
             players_current_hp -= 8
@@ -56,7 +56,7 @@ while players_current_hp > 0 and enemys_current_hp > 0:
     
     print("Player's turn\n")
     while players_attack not in attacks:
-      players_attack = input("Select your attak\n[C]ut\[S]hieldPush\n")
+      players_attack = input("Select your attack\n[C]ut\[S]hieldPush\n")
       if players_attack == "C":
           print("Player hit with Cut")
           enemys_current_hp -= 12
