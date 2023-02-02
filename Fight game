@@ -1,0 +1,86 @@
+from random import randint
+import os
+
+attacks = ["C", "S"]
+
+PLAYER_HP = 50
+players_current_hp = PLAYER_HP
+
+ENEMY_HP = 50
+enemys_current_hp = ENEMY_HP
+
+shield_push = False
+
+print("First battle, you're facing Enemy")
+
+# Battle starts
+while players_current_hp > 0 and enemys_current_hp > 0:
+
+    print("Enemy's turn\n\n")
+    enemy_attack = randint(1, 2)
+    if enemy_attack == 1:
+        print("Enemy hit you with Rapier Slash")
+        players_current_hp -= 10
+    else:
+        
+        rapier_critical = randint(1, 10)
+        if rapier_critical == 5:
+            print("Enemy hit a crittical attack!")
+            players_current_hp -= 16
+        else:
+            print("Enemy hit you with Thrust")
+            players_current_hp -= 8
+
+    if shield_push:
+        players_current_hp += 5
+
+    if players_current_hp < 0:
+        players_current_hp = 0
+
+    if enemys_current_hp < 0:
+        enemys_current_hp = 0
+
+    players_hp_bar = int(players_current_hp * 10 / PLAYER_HP)
+    print("Player:        [{}{}] ({}/{})".format("*" * players_hp_bar, " " * (10 - players_hp_bar), players_current_hp,
+                                                 PLAYER_HP))
+
+    enemys_hp_bar = int(enemys_current_hp * 10 / ENEMY_HP)
+    print("Enemy:       [{}{}] ({}/{})".format("*" * enemys_hp_bar, " " * (10 - enemys_hp_bar), enemys_current_hp,
+                                               ENEMY_HP))
+
+    input("Press Enter to continue...\n\n")
+    os.system("cls")
+
+    # Player turn
+
+    players_attack = None
+
+    print("Player's turn\n")
+    while players_attack not in attacks:
+        players_attack = input("Select your attack\n[C]ut\[S]hieldPush\n")
+        if players_attack == "C":
+            print("Player hit with Cut")
+            enemys_current_hp -= 12
+        elif players_attack == "S":
+            print("Player used Shield Push")
+            enemys_current_hp -= 5
+            shield_push = True
+
+    os.system("cls")
+
+    if players_current_hp < 0:
+        players_current_hp = 0
+
+    if enemys_current_hp < 0:
+        enemys_current_hp = 0
+
+    players_hp_bar = int(players_current_hp * 10 / PLAYER_HP)
+    print("Player:        [{}{}] ({}/{})".format("*" * players_hp_bar, " " * (10 - players_hp_bar), players_current_hp,
+                                                 PLAYER_HP))
+
+    enemys_hp_bar = int(enemys_current_hp * 10 / ENEMY_HP)
+    print("Enemy:       [{}{}] ({}/{})".format("*" * enemys_hp_bar, " " * (10 - enemys_hp_bar), enemys_current_hp,
+                                               ENEMY_HP))
+
+    input("Press Enter to continue...\n\n")
+    os.system("cls")
