@@ -23,7 +23,9 @@ def item_save(lista, item_to_save):
 
 
 def file_load():
-    if input("Quieres cargar la ultima lista de la compra? [S/N]"):
+    lista = []
+
+    if input("Quieres cargar la ultima lista de la compra? [S/N]") == "S":
         try:
             with open(LIST_FILE, "r") as a:
                 lista = a.read().split("\n")
@@ -50,3 +52,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
