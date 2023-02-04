@@ -1,0 +1,52 @@
+OUT = "OUT"
+LIST_FILE = "lista_compra.txt"
+
+def user_question():
+    selected_item = input("Introduce un producto:\n [Escribe OUT para salir]\n")
+    while selected_item != OUT:
+        print("El producto no se encuentra en la base de datos")
+        selected_item = input("Introduce un producto:\n [Escribe OUT para salir]\n")
+    return selected_item
+
+
+def file_save(lista):
+    list_file = input("Que nombre quieres poner a tu archivo: ")
+    with open(list_file + ".txt", "w") as my_file:
+        my_file.write("\n".join(lista))
+
+
+def item_save(lista, item_to_save):
+        if item_to_save.lower() in [a.lower for a in lista]:
+            print("El producto ya se encuentra en la lista")
+        else:
+            lista.append(item_to_save)
+
+
+def file_load():
+    if input("Quieres cargar la ultima lista de la compra? [S/N]"):
+        try:
+            with open(LIST_FILE, "r") as a:
+                lista = a.read().split("\n")
+        except FileExistsError:
+            print("Archivo no encontrado")
+    return lista
+
+
+def show_list(lista):
+    print("\n".join(lista))
+
+def main():
+
+    lista = file_load()
+    show_list(lista)
+    user_input = user_question()
+
+    while user_input != OUT:
+        item_save(lista, user_input)
+        print("\n".join(lista))
+        user_input = user_question()
+    file_save(lista)
+
+
+if __name__ == "__main__":
+    main()
